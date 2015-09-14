@@ -54,6 +54,7 @@ let python_highlight_all = 1
 " syntax checker
 Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_errors = 1
 
 " javascript, `npm install -g jscs` / `npm install -g jshint`
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
@@ -109,13 +110,13 @@ let g:user_emmet_next_key = '\]'
 " Code and files fuzzy finder
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'  " 默认在 files+buffers+MRU 中搜索
+let g:ctrlp_cmd = 'CtrlPBuffer'  " 默认在 buffers 中搜索
 let g:ctrlp_regexp = 1  " 使用正则搜索文件, ctrl+r 切换
 let g:ctrlp_by_filename = 1 " 只搜索文件名, ctrl+d 切换
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](node_modules|bower_components|\.cache)$',
+    \ 'dir': '\v[\/](\.(git|cache)|build|dist)$',
     \ 'file': '\v\.(DS_Store|swp)$'
 \ }
 
@@ -144,14 +145,15 @@ Plugin 'skammer/vim-css-color'
 
 Plugin 'arzyu/vim-glaring-theme'
 
-Plugin 'terryma/vim-multiple-cursors'
-
-
 Plugin 'easymotion/vim-easymotion'
 
 
 Plugin 'heavenshell/vim-jsdoc'
 let g:jsdoc_default_mapping = 0
+
+Plugin 'suan/vim-instant-markdown'
+" Need install instant-markdown-d: `npm -g install instant-markdown-d`
+let g:instant_markdown_autostart = 0
 
 
 if has('unix') && !has('mac')
@@ -263,5 +265,8 @@ set laststatus=2
 " 文件格式
 set fileencodings=utf-8,gbk
 set fileformats=unix,dos,mac
+
+" Set interactive bash as the default vim shell
+set shell=bash\ -i
 
 autocmd BufWrite * set fileformat=unix
