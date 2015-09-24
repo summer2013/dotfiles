@@ -71,7 +71,7 @@
         "strict": [2, "global"],
         "yoda": [2, "never"],
 
-		"indent": [2, "tab", {"VariableDeclarator": {"var": 1, "let": 1, "const": 1}}],
+		"indent": [2, 2, {"VariableDeclarator": {"var": 2, "let": 2, "const": 3}}],
 		"brace-style": [2, '1tbs', {"allowSingleLine": true}],
 		"space-before-function-paren": [2, 'never'],
 		"space-before-blocks": 2,
