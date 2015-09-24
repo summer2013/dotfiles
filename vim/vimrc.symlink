@@ -44,6 +44,9 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'pangloss/vim-javascript'
 
 
+Plugin 'mxw/vim-jsx'
+
+
 Plugin 'burnettk/vim-angular'
 
 
@@ -54,29 +57,16 @@ let python_highlight_all = 1
 " syntax checker
 Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open = 1
-let g:syntastic_aggregate_errors = 1
 
-" javascript, `npm install -g jscs` / `npm install -g jshint`
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-
-"Auto jscs fix
-function! JscsFix()
-    "Save current cursor position"
-    let l:winview = winsaveview()
-    "Pipe the current buffer (%) through the jscs -x command"
-    % ! jscs -x
-    "Restore cursor position - this is needed as piping the file"
-    "through jscs jumps the cursor to the top"
-    call winrestview(l:winview)
-endfunction
-command JscsFix :call JscsFix()
-"Run the JscsFix command just before the buffer is written for *.js files"
-autocmd BufWritePre *.js JscsFix
+" javascript
+" `npm install -g eslint babel-eslint eslint-plugin-react`
+let g:syntastic_javascript_checkers = ['eslint']
 
 " json, `npm install -g jsonlint`
 let g:syntastic_json_checkers = ['jsonlint']
 autocmd BufRead,BufNewFile *.json set filetype=json
 
+" python
 " need install flake8: `pip3 install flake8`
 let g:syntastic_python_checkers = ['flake8']
 
