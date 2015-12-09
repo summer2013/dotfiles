@@ -103,9 +103,10 @@ Plugin 'tpope/vim-surround'
 
 " Zen coding
 Plugin 'mattn/emmet-vim'
-let g:user_emmet_expandabbr_key = '\\'
-let g:user_emmet_previous_key = '\['
-let g:user_emmet_next_key = '\]'
+let g:user_emmet_leader_key = '<c-z>'
+" Enable just for html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 
 " Code and files fuzzy finder
