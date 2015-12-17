@@ -35,6 +35,17 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<c-b>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-z>'
+
+" :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit = 'vertical'
+
+
 Plugin 'othree/html5.vim'
 
 
@@ -92,9 +103,10 @@ Plugin 'tpope/vim-surround'
 
 " Zen coding
 Plugin 'mattn/emmet-vim'
-let g:user_emmet_expandabbr_key = '\\'
-let g:user_emmet_previous_key = '\['
-let g:user_emmet_next_key = '\]'
+let g:user_emmet_leader_key = '<c-z>'
+" Enable just for html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 
 " Code and files fuzzy finder
@@ -128,6 +140,9 @@ endif
 let g:airline_symbols.branch = '↯'
 let g:airline_symbols.linenr = '┼'
 
+
+Plugin 'cakebaker/scss-syntax.vim'
+autocmd BufRead,BufNewFile *.scss set filetype=scss.css
 
 Plugin 'groenewege/vim-less'
 

@@ -8,9 +8,6 @@
 	pager = less -x4
 [alias]
 	lg = log --oneline --graph --pretty=format:\"%C(yellow)%h%d%Creset %C(blue)%an%Creset: %s - %Cgreen(%cr)%Creset\" --date-order --all
-	co = checkout
-	ci = commit
-	st = status
 [merge]
 	tool = vimdiff
 [push]
